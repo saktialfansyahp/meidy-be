@@ -1,9 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProdukController;
-use App\Models\Produk;
-
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +16,16 @@ use App\Models\Produk;
 */
 
 Route::get('/', function () {
-    $jumlahproduk=Produk::count();
-    return view('welcome',['jumlahproduk' => $jumlahproduk]);
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-// Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
-Route::resource('produk', ProdukController::class);
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
