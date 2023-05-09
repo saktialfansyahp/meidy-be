@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controller;
+use App\Http\Controllers\ProdukAPIController;
+use App\Http\Controllers\CartAPIController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+ Route::resource('/produkapi', ProdukAPIController::class);
+ Route::resource('/cartapi', CartAPIController::class);

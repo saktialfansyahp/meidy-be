@@ -27,11 +27,9 @@
       <div class="row">
         <div class="col-lg-3 col-6">
           <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
+          <div class="small-box" >
+            <div class="inner text-white">
               <h3>{{ $jumlahproduk }}</h3>
-              
-
               <p>Jumlah Produk</p>
             </div>
             <div class="icon">
@@ -45,7 +43,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>0<sup style="font-size: 20px"></sup></h3>
 
               <p>Jumlah Stok</p>
             </div>
@@ -60,7 +58,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3 class="text-white">44</h3>
+              <h3 class="text-white">0</h3>
 
               <p class="text-white">Jumlah Pemesan</p>
             </div>
@@ -75,7 +73,7 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <h3>0</h3>
 
               <p>Jumlah User</p>
             </div>
@@ -606,5 +604,10 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<style>
+  .small-box {
+            background-color: #bf88db !important
+        }
+</style>
   
 @endsection

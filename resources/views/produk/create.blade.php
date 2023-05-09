@@ -36,7 +36,7 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Harga</label>
-                <input type="number" name="harga" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="harga" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Ukuran</label>
