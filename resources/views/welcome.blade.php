@@ -609,5 +609,5 @@
             background-color: #bf88db !important
         }
 </style>
-  
+
 @endsection

@@ -25,7 +25,7 @@
         <div class="card">
           <div class="card-header">
             <a href="{{route('produk.create')}}" type="button" class="btn btn-info">Create +</a>
-              
+
           </div>
           <!-- /.card-header -->
           <div class="card">
@@ -39,7 +39,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama Produk</th>
-                    <th scope="col">Harga</th>
+                    <th style="width:10%" scope="col">Harga</th>
                     <th scope="col">Ukuran</th>
                     <th scope="col">Warna</th>
                     <th scope="col">Stok</th>
@@ -49,7 +49,7 @@
                   </thead>
                   <tbody>
                     @php
-                        $no = 1;   
+                        $no = 1;
                     @endphp
                     @foreach ($data as $row)
                     <tr>
@@ -58,18 +58,18 @@
                           <img src="{{  $row-> gambar }}" alt="" style=" width: 50px; ">
                       </td>
                       <td>{{ $row-> nama_produk }}</td>
-                      <td>{{ $row-> harga }}</td>
+                      <td>Rp {{ $row-> harga }}</td>
                       <td>{{ $row-> ukuran }}</td>
                       <td>{{ $row-> warna }}</td>
                       <td>{{ $row-> stok }}</td>
                       <td>{{ $row-> deskripsi }}</td>
                       <td>
                           <a href="{{ route('produk.edit', $row->id) }}" type="button" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                          <form class='formdelete' action="{{ route('produk.destroy', $row->id)}}" 
+                          <form class='formdelete' action="{{ route('produk.destroy', $row->id)}}"
                             method="post">
                             @csrf
                             @method('delete')
-                            <button class="btn btn-danger" 
+                            <button class="btn btn-danger"
                             type="submit"><i class="fas fa-trash"></i></button>
                           </form>
                       </td>
@@ -99,7 +99,7 @@
       </div>
     </div>
     </div>
-    
+
 
   <!-- Optional JavaScript; choose one of the two! -->
 
@@ -113,5 +113,5 @@
   -->
 
 </body>
-</div> 
+</div>
 @endsection

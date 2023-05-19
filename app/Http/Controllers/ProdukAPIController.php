@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Produk;
-use RealRashid\SweetAlert\Facades\Alert;
-use Storage;
 use DB;
+use App\Models\Produk;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class ProdukAPIController extends Controller
@@ -16,7 +16,7 @@ class ProdukAPIController extends Controller
 *
 * @param \Illuminate\Http\Request $request
 * @return \Illuminate\Http\Response
-*/  
+*/
 
 public function index(request $request)
 {
@@ -26,8 +26,8 @@ public function index(request $request)
       $value->gambar = 'http://localhost:8000'.Storage::url($value->gambar);
       return $value;
    });
-    
-   return response()-> json([ 
+
+   return response()-> json([
    'success' => true,
     'mesage' => 'list data post',
     'data' => $data
@@ -43,8 +43,8 @@ public function show(request $request, $produkapi)
    // });
 
    $data->gambar = 'http://localhost:8000'.Storage::url($data->gambar);
-    
-   return response()-> json([ 
+
+   return response()-> json([
    'success' => true,
     'mesage' => ' data post',
     'data' => $data

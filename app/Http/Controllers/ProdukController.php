@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-use Storage;
-use DB;
 
 
 class ProdukController extends Controller
@@ -16,16 +16,16 @@ class ProdukController extends Controller
 *
 * @param \Illuminate\Http\Request $request
 * @return \Illuminate\Http\Response
-*/  
+*/
 
    public function index(request $request)
    {
       $data = Produk::all();
-      $data = $data->map(function($value) { 
+      $data = $data->map(function($value) {
          $value->gambar = Storage::url($value->gambar);
          return $value;
          });
-      return view('produk.index', compact('data')) ;
+      return view('produk.index', compact('data'));
    }
 
    public function create(){
@@ -44,7 +44,7 @@ class ProdukController extends Controller
             'stok' => 'required',
             'deskripsi' => 'required',
          ]);
-         
+
          $produk = Produk::create([
             'gambar' => '',
             'nama_produk' => $request->nama_produk,
@@ -62,7 +62,7 @@ class ProdukController extends Controller
         }
 
       return redirect()->route('produk.index')->with('success', 'Data Berhasil Ditambahkan');
-   }  
+   }
 
    /**
     * Show the form for editing the specified resource.
@@ -85,7 +85,7 @@ class ProdukController extends Controller
     */
     public function update(Request $request, $id)
     {
-      
+
 
       $produk = Produk::find($id);
         $produk->nama_produk = $request->nama_produk;
@@ -101,12 +101,12 @@ class ProdukController extends Controller
          $produk->gambar = $path;
          $produk->save();
      }
-           
-        $produk->save(); 
+
+        $produk->save();
         return redirect()->route('produk.index')->with('success', 'Data Berhasil Diubah');
 
     }
-    
+
     /**
     * Remove the specified resource from storage.
     *
